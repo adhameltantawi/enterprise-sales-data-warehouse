@@ -47,3 +47,14 @@ WITH
 );
 GO
 
+TRUNCATE TABLE bronze.erp_loc_a101;
+BULK INSERT bronze.erp_loc_a101
+FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_loc_a101'
+WITH
+(
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+GO
+
