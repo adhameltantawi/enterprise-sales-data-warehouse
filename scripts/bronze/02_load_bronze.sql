@@ -58,3 +58,13 @@ WITH
 );
 GO
 
+TRUNCATE TABLE bronze.erp_px_cat_g1v2;
+BULK INSERT bronze.erp_px_cat_g1v2
+FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_px_cat_g1v2'
+WITH
+(
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    TABLOCK
+);
+GO
