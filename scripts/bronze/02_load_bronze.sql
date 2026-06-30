@@ -1,7 +1,7 @@
 TRUNCATE TABLE bronze.crm_cust_info;
 
 BULK INSERT bronze.crm_cust_info
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\cust_info.csv'
+FROM 'E:\data\enterprise-sales-data-warehouse\datasets\source_crm\cust_info.csv'
 WITH
 (
     FIRSTROW = 2,
@@ -16,7 +16,7 @@ GO
 
 TRUNCATE TABLE bronze.crm_sales_details;
 BULK INSERT bronze.crm_sales_details
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\sales_details.csv'
+FROM 'E:\data\enterprise-sales-data-warehouse\datasets\source_crm\sales_details.csv'
 WITH 
 (
     FIRSTROW = 2,
@@ -32,7 +32,7 @@ GO
 
 TRUNCATE TABLE bronze.crm_prd_info;
 BULK INSERT bronze.crm_prd_info
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\prd_info.csv'
+FROM 'E:\data\enterprise-sales-data-warehousex\datasets\source_crm\prd_info.csv'
 WITH    
 (
     FIRSTROW = 2,
@@ -46,7 +46,7 @@ GO
 
 TRUNCATE TABLE bronze.erp_custaz12;
 BULK INSERT bronze.erp_custaz12
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_custaz12'
+FROM 'E:\data\enterprise-sales-data-warehouse\datasets\source_erp\erp_custaz12'
 WITH
 (
     FIRSTROW = 2,
@@ -61,7 +61,7 @@ GO
 
 TRUNCATE TABLE bronze.erp_loc_a101;
 BULK INSERT bronze.erp_loc_a101
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_loc_a101'
+FROM 'E:\data\enterprise-sales-data-warehouse\datasets\source_erp\erp_loc_a101'
 WITH
 (
     FIRSTROW = 2,
@@ -76,7 +76,7 @@ GO
 
 TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 BULK INSERT bronze.erp_px_cat_g1v2
-FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_px_cat_g1v2'
+FROM 'E:\data\enterprise-sales-data-warehouse\datasets\source_erp\erp_px_cat_g1v2'
 WITH
 (
     FIRSTROW = 2,
