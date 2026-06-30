@@ -25,6 +25,11 @@ WITH
 );
 GO
 
+-- Quality check
+-- select * from bronze.crm_sales_details;
+
+
+
 TRUNCATE TABLE bronze.crm_prd_info;
 BULK INSERT bronze.crm_prd_info
 FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\prd_info.csv'
@@ -35,6 +40,9 @@ WITH
     TABLOCK
 );
 GO
+
+-- Quality check
+-- select * from bronze.crm_prd_info;
 
 TRUNCATE TABLE bronze.erp_custaz12;
 BULK INSERT bronze.erp_custaz12
@@ -47,6 +55,10 @@ WITH
 );
 GO
 
+-- Quality check
+-- select * from bronze.erp_custaz12;
+
+
 TRUNCATE TABLE bronze.erp_loc_a101;
 BULK INSERT bronze.erp_loc_a101
 FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_loc_a101'
@@ -58,6 +70,10 @@ WITH
 );
 GO
 
+-- Quality check
+-- select * from bronze.erp_loc_a101;
+
+
 TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 BULK INSERT bronze.erp_px_cat_g1v2
 FROM 'E:\data\braa\sql-data-warehouse-project-main\datasets\source_crm\erp_px_cat_g1v2'
@@ -68,3 +84,6 @@ WITH
     TABLOCK
 );
 GO
+
+-- Quality check
+-- select * from bronze.erp_px_cat_g1v2;
