@@ -121,13 +121,13 @@ enterprise-sales-data-warehouse/
 │
 ├── scripts/                       # ETL pipeline scripts
 │   ├── init_database.sql          # Database & schema creation
-│   └── bronze/                    # Bronze layer scripts
-│       ├── 01_create_tables.sql   # DDL for bronze tables
-│       └── 02_load_bronze.sql     # Stored procedure for CSV ingestion
-│
-├── silver/                        # Silver layer scripts
-│   ├── 01_create_tables.sql       # DDL for silver tables
-│   └── 02_data_exploration.sql    # Exploration & profiling queries
+│   ├── bronze/                    # Bronze layer scripts
+│   │   ├── 01_create_tables.sql   # DDL for bronze tables
+│   │   └── 02_load_bronze.sql     # Stored procedure for CSV ingestion
+│   └── silver/                    # Silver layer scripts
+│       ├── 01_create_tables.sql   # DDL for silver tables
+│       ├── 02_data_exploration.sql # Exploration & profiling queries
+│       └── 03_quality_checks.sql  # Null & duplicate validation checks
 │
 ├── tests/                         # Test scripts & validation
 ├── docs/                          # Additional documentation
@@ -189,10 +189,13 @@ Execute the pipeline layer by layer in the following order:
 
 ```sql
 -- 2a. Create silver tables (adds dwh_create_date audit column)
-:r silver/01_create_tables.sql
+:r scripts/silver/01_create_tables.sql
 
 -- 2b. Explore and profile the data
-:r silver/02_data_exploration.sql
+:r scripts/silver/02_data_exploration.sql
+
+-- 2c. Run null & duplicate validation checks
+:r scripts/silver/03_quality_checks.sql
 ```
 
 ### Step 3 → Gold Layer
