@@ -1,8 +1,9 @@
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
-    DECLARE @start_time DATETIME, @end_time DATETIME;
+    DECLARE @start_time DATETIME2, @end_time DATETIME2, @batch_start_time DATETIME2, @batch_end_time DATETIME2;
 
     BEGIN TRY
+        SET @batch_start_time = GETDATE();
         PRINT '==========================================';
         PRINT 'Loading Bronze Layer';
         PRINT '==========================================';
@@ -157,7 +158,13 @@ BEGIN
         -- Quality check
         -- select * from bronze.erp_px_cat_g1v2;
 
+    SET @batch_start_time = GETDATE();
 
+    PRINT '==========================================';
+    PRINT 'Loading Bronze Layer is Completed';    
+    PRINT '   - total loading duration: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR(50)) + ' seconds';
+    PRINT '==========================================';
+    
     END TRY
     BEGIN CATCH
         PRINT '==========================================';
